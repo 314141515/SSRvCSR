@@ -49,7 +49,7 @@ export default function SSRPage({ drinks, timestamp }) {
 export async function getServerSideProps() {
   const res = await fetch('https://www.thecocktaildb.com/api/json/v1/1/search.php?s=margarita')
   const data = await res.json()
-  const timestamp = new Date().toLocaleTimeString('da-DK')
+  const timestamp = new Date().toLocaleTimeString('da-DK', { timezone: 'Europe/Copenhagen'})
 
   return {
     props: {
